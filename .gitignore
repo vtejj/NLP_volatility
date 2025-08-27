@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+*.pkl
+*.joblib
+*.h5
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+.venv/
+env/
+venv/
+ENV/
+*.env
+
+# Data & Outputs
+data_with_embeddings.csv
+*.csv
+*.tsv
+*.parquet
+*.log
+*.out
+
+# Gradio
+gradio_cached_examples/
+
+# OS Files
+.DS_Store
+Thumbs.db

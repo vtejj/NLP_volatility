@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+lightgbm
+xgboost
+catboost
+sentence-transformers
+torch
+gradio
+tqdm
+joblib
