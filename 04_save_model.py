@@ -20,7 +20,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 model = lgb.LGBMRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Save model to disk
 joblib.dump(model, "model_lgbm_volatility.pkl")
 
-print("✅ LightGBM model saved as model_lgbm_volatility.pkl")
+print(" LightGBM model saved as model_lgbm_volatility.pkl")

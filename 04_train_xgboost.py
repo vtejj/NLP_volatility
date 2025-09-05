@@ -36,7 +36,7 @@ joblib.dump(model, "model_xgb_volatility.pkl")
 y_pred = model.predict(X_test)
 r2 = r2_score(y_test, y_pred)
 mae = mean_absolute_error(y_test, y_pred)
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))  # <-- Fix here
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))  
 
 
 print("XGBoost R² Score:", round(r2, 4))

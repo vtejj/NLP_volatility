@@ -49,6 +49,23 @@ Evaluated on **R² Score, MAE, RMSE**
  **LightGBM** was chosen for deployment due to its slightly superior R².
 
 ---
+## Baselines & MAE Uplift
+
+We compare against two naive baselines:
+- **Constant**: predict the train-mean volatility every day  
+- **Persistence**: predict **prev_5d_vol** (yesterday’s 5-day rolling vol)
+
+| Split            | Model / Baseline        | MAE     | RMSE    | R²      | MAE Uplift vs Baseline |
+|------------------|-------------------------|---------|---------|---------|------------------------|
+| 2019–2021 (Val)  | **Residual LGBM **| 0.00264 | 0.00494 | -0.0325 | —                      |
+| 2019–2021 (Val)  | Constant (train-mean)   | 0.00339 | 0.00490 | -0.0179 | **+22.1%**             |
+| 2019–2021 (Val)  | Persistence (prev_5d)   | 0.00341 | 0.00601 | -0.5307 | **+22.5%**             |
+| 2022+ (Test)     | **Residual LGBM **| 0.00165 | 0.00202 | -0.3287 | —                      |
+| 2022+ (Test)     | Constant (train-mean)   | 0.00330 | 0.00354 | -3.0985 | **+50.1%**             |
+| 2022+ (Test)     | Persistence (prev_5d)   | 0.00187 | 0.00253 | -1.0860 | **+12.0%**             |
+
+> **Takeaway:** The residual LightGBM consistently **reduces MAE** vs strong naive baselines, including a **12% MAE improvement vs persistence** on the 2022+ test regime.
+
 
 ## Gradio Interface
 
