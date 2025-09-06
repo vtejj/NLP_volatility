@@ -18,7 +18,6 @@ TONE_MODEL = "yiyanghkust/finbert-tone"
 base = pd.read_csv("data_with_volatility.csv")
 base["Date"] = pd.to_datetime(base["Date"])
 base = base.sort_values("Date").reset_index(drop=True)
-# Ensure required cols exist
 req_cols = {"Date","CP","Title","volatility_30d"}
 missing = req_cols - set(base.columns)
 if missing:

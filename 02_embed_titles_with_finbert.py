@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Step 1: Load Data 
+# Load Data 
 df = pd.read_csv("data_with_volatility.csv")
 titles = df["Title"].astype(str).tolist()
 

@@ -1,4 +1,3 @@
-# 12_gradio_text_residual.py
 import gradio as gr
 import pandas as pd
 import numpy as np
@@ -8,17 +7,17 @@ from transformers import AutoTokenizer, AutoModel, AutoModelForSequenceClassific
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# --- Load residual model (logratio), feature list, and EPS ---
+#  Load residual model (logratio), feature list, and EPS 
 pack = joblib.load("model_lgbm_residual.pkl")
 model = pack["model"]
 use_cols = pack["use_cols"]
 EPS = pack.get("eps", 1e-6)
 
-# --- Load latest market lag features as proxy ---
+#  Load latest market lag features as proxy 
 hist = pd.read_csv("features_enriched.csv", parse_dates=["Date"]).sort_values("Date")
 recent = hist.tail(1).iloc[0]  # last row
 
-# --- Embedding & tone backbones (FinBERT tone backbone for both) ---
+#  Embedding & tone backbones (FinBERT tone backbone for both)
 BERT_NAME = "yiyanghkust/finbert-tone"
 tok = AutoTokenizer.from_pretrained(BERT_NAME)
 enc = AutoModel.from_pretrained(BERT_NAME).to(DEVICE)

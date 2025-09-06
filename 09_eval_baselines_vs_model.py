@@ -9,7 +9,7 @@ import numpy as np
 import joblib
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Load model + features 
+# Load model
 pack = joblib.load("model_lgbm_enriched.pkl")
 model = pack["model"]
 use_cols = pack["use_cols"]
@@ -90,7 +90,7 @@ print_row("Baseline: Constant", mae_test_c, rmse_test_c, r2_test_c,
 print_row(f"Baseline: Persistence", mae_test_p, rmse_test_p, r2_test_p,
           uplift=uplift_test_p)
 
-#save to csv
+#saving to csv
 out = pd.DataFrame([
     {"split":"val","name":"model_lgbm","mae":mae_val_m,"rmse":rmse_val_m,"r2":r2_val_m,"uplift_vs_const(%)":uplift_val_const,"uplift_vs_persist(%)":uplift_val_p},
     {"split":"val","name":"baseline_constant","mae":mae_val_c,"rmse":rmse_val_c,"r2":r2_val_c},

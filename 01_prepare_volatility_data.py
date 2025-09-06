@@ -1,5 +1,5 @@
 """
-Prepare data for volatility prediction from news headlines and S&P500 prices.
+Preparing data for volatility prediction from news headlines and S&P500 prices.
 """
 
 import pandas as pd
@@ -24,5 +24,5 @@ df = df.dropna(subset=['log_return', 'volatility_30d'])
 #  Step 5: Final Sanity Check 
 print(df[['Date', 'CP', 'log_return', 'volatility_30d', 'Title']].head())
 
-# Save preprocessed data 
+# Saving preprocessed data 
 df.to_csv("data_with_volatility.csv", index=False)
